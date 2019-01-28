@@ -1,4 +1,4 @@
-import { combineReducer } from "redux";
+import { combineReducers } from "redux";
 
 //reducer dari list lagu
 const songReducer = () => {
@@ -12,16 +12,16 @@ const songReducer = () => {
 //reducer dari detail sebuah lagi
 //ambil parameter 'song' yang di deklarasiin di action
 
-const selectedSongReducer = (selectedSong = null, action) => {
+const selectedSongReducer = (selectSong = null, action) => {
   //cek apakah si action yang dipilih sesuai dengan action yang diinginkan
   //kalo iya return
   if (action.type === "SONG_SELECTED") {
     return action.payload;
   }
-  return selectedSong;
+  return selectSong;
 };
 
-export default combineReducer({
+export default combineReducers({
   song: songReducer,
-  selectedSong: selectedSongReducer
+  selectSong: selectedSongReducer
 });
